@@ -171,12 +171,12 @@ class format_iprestricted extends format_base {
                 'label' => get_string('childformat', "format_iprestricted"),
                 'element_type' => 'select',
                 'element_attributes' => array($formcourseformats)
-            ) 
+            )
         );
         if (isset($this->childformat)) {
             $childoptions = $this->childformat->course_format_options($foreditform);
             $courseformatoptions = array_merge($courseformatoptions, $childoptions);
-         } else {
+        } else {
             $courseid = $this->get_courseid();
             foreach ($courseformats as $courseformat) {
                 if ($courseformat === 'iprestricted') {
@@ -203,11 +203,11 @@ class format_iprestricted extends format_base {
      */
     public function create_edit_form_elements(&$mform, $forsection = false) {
         $elements = parent::create_edit_form_elements($mform, $forsection);
-        
+
         if (isset($this->childformat)) {
             $childelements = $this->childformat->create_edit_form_elements($mform, $forsection);
             $elements = array_merge($elements, $childelements);
-        } else {   
+        } else {
             $courseid = $this->get_courseid();
             $courseformats = get_sorted_course_formats(true);
 
@@ -219,7 +219,7 @@ class format_iprestricted extends format_base {
                 $class = 'format_'. $courseformat;
                 $format = new $class($courseformat, $courseid);
                 $extraelements = $format->create_edit_form_elements($mform, $forsection);
-                foreach($extraelements as $key => $extraelement) {
+                foreach ($extraelements as $key => $extraelement) {
                     $name = $extraelement->getName();
                     if ($name !== '' && $mform->elementExists($name)) {
                         unset($extraelements[$key]);
@@ -248,7 +248,7 @@ class format_iprestricted extends format_base {
      */
     public function update_course_format_options($data, $oldcourse = null) {
         $changed = $this->update_format_options($data);
-        
+
         if (isset($this->childformat)) {
             $childchanged = $this->childformat->update_course_format_options($data, $oldcourse);
             $changed = $changed || $childchanged;
