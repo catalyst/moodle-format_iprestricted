@@ -53,10 +53,10 @@ class format_iprestricted extends format_base {
      */
     protected function __construct($format, $courseid) {
         parent::__construct($format, $courseid);
-        $childformat = $this->get_course()->childformat;
-        if (!is_null($childformat)) {
-            $class = 'format_'. $childformat;
-            $this->childformat = new $class($childformat, $courseid);
+        $course = $this->get_course();
+        if (!is_null($course)) {
+            $class = 'format_'. $course->childformat;
+            $this->childformat = new $class($course->childformat, $courseid);
         }
     }
 
@@ -250,7 +250,7 @@ class format_iprestricted extends format_base {
         
         if (isset($this->childformat)) {
             $childchanged = $this->childformat->update_course_format_options($data, $oldcourse);
-            $changed = array_merge($changed, $childchanged);
+            $changed = $changed || $childchanged;
         } else {
             $courseformats = get_sorted_course_formats(true);
             $courseid = $this->get_courseid();
@@ -262,7 +262,7 @@ class format_iprestricted extends format_base {
                 $class = 'format_'. $courseformat;
                 $format = new $class($courseformat, $courseid);
                 $extrachanged = $format->update_course_format_options($data, $oldcourse);
-                $changed = array_merge($changed, $extrachanged);
+                $changed = $changed || $extrachanged;
             }
         }
         return $changed;
