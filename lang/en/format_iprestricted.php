@@ -24,6 +24,7 @@
  */
 
 $string['childformat'] = 'Extended course format';
+$string['hidefromothers'] = 'Hide topic';
 $string['ipblocked'] = 'Access to this course has been restricted. Please access this course on an allowed network.';
 $string['ipranges'] = 'Allowed IP address(es)';
 $string['ipranges_help'] = 'Single IP address or range separated by line breaks.
@@ -33,3 +34,4 @@ E.g;<br>
 127.0.1.0/24<br>
 197.87.23.0/24';
 $string['pluginname'] = 'IP restricted format';
+$string['showfromothers'] = 'Show topic';
