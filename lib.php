@@ -164,7 +164,8 @@ class format_iprestricted extends format_base {
                 'label' => get_string('ipranges', "format_iprestricted"),
                 'element_type' => 'textarea',
                 'help' => 'ipranges',
-                'help_component' => 'format_iprestricted'
+                'help_component' => 'format_iprestricted',
+                'default' => getremoteaddr(null)
             ),
             'childformat' => array(
                 'label' => get_string('childformat', "format_iprestricted"),
