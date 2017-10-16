@@ -24,7 +24,7 @@
 
 $string['childformat'] = 'Extended course format';
 $string['hidefromothers'] = 'Hide topic';
-$string['ipblocked'] = 'Access to this course has been restricted. Please access this course on an allowed network.';
+$string['ipblocked'] = 'Access to this course has been restricted. Your IP address ($a) is not white listed.';
 $string['ipranges'] = 'Allowed IP address(es)';
 $string['ipranges_help'] = 'Single IP address or range separated by line breaks.
 
