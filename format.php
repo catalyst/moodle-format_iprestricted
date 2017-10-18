@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $ipranges = course_get_format($course)->get_course()->ipranges;
 if (!remoteip_in_list($ipranges)) {
-    die(get_string('ipblocked', 'format_iprestricted'));
+    die(get_string('ipblocked', 'format_iprestricted', getremoteaddr(null)));
 }
 
 require_once($CFG->dirroot. '/course/format/topics/format.php');
