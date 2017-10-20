@@ -24,9 +24,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$ipranges = course_get_format($course)->get_course()->ipranges;
-if (!remoteip_in_list($ipranges)) {
+$coruse = course_get_format($course)->get_course();
+if (!remoteip_in_list($coruse->ipranges)) {
     die(get_string('ipblocked', 'format_iprestricted', getremoteaddr(null)));
 }
 
-require_once($CFG->dirroot. '/course/format/topics/format.php');
+// Fall back on the topic format if childformat is not set.
+if (!is_null($course->childformat)) {
+    require_once($CFG->dirroot. '/course/format/'. $course->childformat .'/format.php');
+} else {
+    require_once($CFG->dirroot. '/course/format/topics/format.php');
+}

@@ -54,7 +54,7 @@ class format_iprestricted extends format_base {
     protected function __construct($format, $courseid) {
         parent::__construct($format, $courseid);
         $course = $this->get_course();
-        if (!is_null($course)) {
+        if (!is_null($course) && !is_null($course->childformat)) {
             $class = 'format_'. $course->childformat;
             $this->childformat = new $class($course->childformat, $courseid);
         }
@@ -90,7 +90,9 @@ class format_iprestricted extends format_base {
      * @return stdClass
      */
     public function supports_ajax() {
-        return true;
+        $ajaxsupport = new stdClass();
+        $ajaxsupport->capable = true;
+        return $ajaxsupport;
     }
 
     /**
