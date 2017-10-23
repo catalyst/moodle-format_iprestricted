@@ -10,10 +10,17 @@ Choosing this course format for a course will restrict access to that course.
 If you are browsing from an IP address that is not listed in the white list, you will be denied access to view that course.
 
 # Usage
-To restrict iaccess to a course, choose the "IP Restricted" format for the course.
+To restrict access to a course:
+* choose the "IP Restricted" format for the course.
+* Set the old course format to ...something
+* Choose which IP addresses (and/or netblocks) should be "whitelisted"
+* Done!
 
-Set the old course format to
+Crafted by Catalyst IT
+----------------------
 
-Choose which IP addresses (and/or netblocks) should be "whitelisted"
+This plugin was developed by Catalyst IT Australia:
 
-Done!
+https://www.catalyst-au.net/
+
+![Catalyst IT](/pix/catalyst-logo.png?raw=true)
