@@ -11,13 +11,16 @@ If you are browsing from an IP address that is not listed in the white list, you
 
 # Usage
 To restrict access to a course:
+* Edit the course you'd like to restrict
+* Note the existing(old) course format
 * choose the "IP Restricted" format for the course.
-* Set the old course format to ...something
+* Set the XXX to the old course format
 * Choose which IP addresses (and/or netblocks) should be "whitelisted"
-* Done!
+* Save. Done!
+Users attempting to view the course from an IP address that has not been whitelisted will be denied access to that course.
 
-Crafted by Catalyst IT
-----------------------
+
+# Crafted by Catalyst IT
 
 This plugin was developed by Catalyst IT Australia:
 
